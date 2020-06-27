@@ -509,11 +509,11 @@ $> docker exec -it azkarra-cp-broker /usr/bin/kafka-console-consumer --from-begi
 --topic streams-wordcount-output --bootstrap-server kafka:9092 
 ```
 
-Congratulation! You just run you first KafkaStreams application using Azkarra.
+Congratulation! You just ran your first KafkaStreams application using Azkarra.
 
-**But, Azkarra is not limited to that and can do much more.**  So let’s go ahead and explore what is making Azkarra so cool!
+**But, Azkarra is not limited to that and can do much more.**  So let’s go ahead and explore what makes Azkarra so cool!
 
-(In the following section we will omitted the code for the WordCountTopology for clarity)
+(In the following section we will omit the code for the WordCountTopology for clarity)
 
 ## Simplifying our Application
 In the previous example, we have manually created a `StreamsExecutionEnvironment` and added the `WordCountTopologyProvider`.
