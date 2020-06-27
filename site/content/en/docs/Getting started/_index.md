@@ -130,7 +130,7 @@ As you can see, the `TopologyProvider` interface enforces you to provide a topol
 The version is required and you can't return `null`. Usually, you will return the version of your project (e.g : 1.0, 1.2-SNAPSHOT, etc).
 Azkarra will use this version to generate a meaningful config `application.id` for your streams instance if no one is provided at runtime.
 
-With Azkarra, you doesn't have to create a new `KafkaStreams` instance to run the `Topology`. This is done internally by the Azkarra API.
+With Azkarra, you don't have to create a new `KafkaStreams` instance to run the `Topology`. This is done internally by the Azkarra API.
 
 Instead of that, you are going to create a new `StreamsExecutionEnvironment` instance in the main method. 
 The `StreamsExecutionEnvironment` is used to handle the lifecycle of one or multiple `KafkaStreams` instances. Furthermore, this can be used for
@@ -491,7 +491,7 @@ $> mvn clean package && java -jar target/azkarra-quickstart-java-0.7.4.jar
 
 Let's produce some input messages to Kafka topic `streams-plaintext-input` : 
 ```bash 
-$> docker exec -it azkarra-cp-broker /usr/bin/kafka-console-producer \ 
+$> docker exec -it azkarra-cp-broker /usr/bin/kafka-console-producer \
 --topic streams-plaintext-input --broker-list kafka:9092
 
 Azkarra Streams
@@ -504,7 +504,8 @@ Making Sense of Stream Processing
 Then consume from output topic `streams-wordcount-output` : 
 ```bash
 $> docker exec -it azkarra-cp-broker /usr/bin/kafka-console-consumer --from-beginning \
---property print.key=true --property key.separator="-" \ 
+--property print.key=true --property key.separator="-" \
+--value-deserializer org.apache.kafka.common.serialization.LongDeserializer \
 --topic streams-wordcount-output --bootstrap-server kafka:9092 
 ```
 
